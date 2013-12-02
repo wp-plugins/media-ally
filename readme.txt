@@ -4,7 +4,7 @@ Donate link: http://stephanieleary.com/code/wordpress/media-ally/
 Tags: accessibility, a11y, media, images, video, audio, transcripts, alt
 Requires at least: 3.5
 Tested up to: 3.5.1
-Stable tag: 0.1
+Stable tag: 0.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,3 +27,7 @@ Other forms of media will be added in future versions. Visit https://github.com/
 == Screenshots ==
 
 1. The media library with the alt/transcript column
+
+== Changelog ==
+= 0.2 =
+* Fixed problem with the setting/report screen. Thanks to Joe Dolson for reporting the problem.

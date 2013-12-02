@@ -2,7 +2,7 @@
 /*
 Plugin Name: Media Ally
 Plugin URI: http://stephanieleary.com
-Version: 0.1
+Version: 0.2
 Author: Stephanie Leary
 Author URI: http://stephanieleary.com
 Description: Provides a report on the accessibility of your media files.
@@ -166,7 +166,6 @@ function media_ally_get_options() {
 	);
 	$options = get_option( 'media_ally' );
 	if ( !is_array( $options ) ) {
-		add_option( 'media_ally', $defaults, '', 'yes' );
 		$options = array();
 	}
 	return array_merge( $defaults, $options );
@@ -176,11 +175,7 @@ function media_ally_get_options() {
 function media_ally_validate( $input ) {
 	$options = media_ally_get_options();
 	
-	if ( !isset( $input['ally_column'] ) )
-		$input['ally_column'] = $options['ally_column'];
-	else
-		$input['ally_column'] = intval( $input['ally_column'] );
+	$input['ally_column'] = intval( $input['ally_column'] );
 	
 	return $input;
 }
-?>
