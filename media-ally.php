@@ -18,7 +18,7 @@ add_action('manage_media_custom_column', 'media_ally_ally_column', 10, 2);
 function media_ally_columns($columns) {
 	$options = media_ally_get_options();
 	if ($options['ally_column'])
-		$columns['ally_column'] = __('Alt/Transcript');
+		$columns['ally_column'] = __('Alt/Transcript', 'media-ally');
 	return $columns;
 }
 
@@ -31,9 +31,9 @@ function media_ally_ally_column($column, $id) {
 		    case 'image/gif':
 		      	$alt = get_post_meta( $id, '_wp_attachment_image_alt', true );
 				if ( empty( $alt ) )
-					echo '<a href="'.get_edit_post_link( $id ).'" class="add_alt">'.__('Add alt text').'</a>';
+					echo '<a href="'.get_edit_post_link( $id ).'" class="add_alt">'.__('Add alt text', 'media-ally').'</a>';
 				else
-					echo '<span class="ok">&#10003;</span>';
+					echo '<span class="ok">'.__('&#10003;', 'media-ally').'</span>';
 				break;
 			case 'video/asf':
 			case 'video/avi':
@@ -70,7 +70,7 @@ function media_ally_report_page() {
 		
 		if ( current_user_can( 'manage_options' ) ) {
 		?>
- 	<h2><?php _e('Accessibility Report' ); ?></h2>  
+ 	<h2><?php _e('Accessibility Report', 'media-ally' ); ?></h2>  
 
 	<table class="form-table">
 		<tr>
@@ -101,10 +101,10 @@ function media_ally_report_page() {
 				// TODO: replace this table with progress bars.
 				
 				if ( !is_wp_error( $all_imgs ) && count( $all_imgs ) > 0 ) {
-					echo '<tr><th>'.sprintf( _n( 'Found %d image', 'Found %d images', count( $all_imgs ) ), count( $all_imgs ) ).'</th></tr>';
+					echo '<tr><th>'.sprintf( _n( 'Found %d image', 'Found %d images', count( $all_imgs ) ), 'media-ally' ).'</th></tr>';
 				}
 				if ( !is_wp_error( $empty_alts ) && count( $empty_alts ) > 0 ) {
-					echo '<tr><th>'.sprintf( _n( 'Found %d image without alt text', 'Found %d images without alt text', count( $empty_alts ) ), count( $empty_alts ) ).'</th></tr>';
+					echo '<tr><th>'.sprintf( _n( 'Found %d image without alt text', 'Found %d images without alt text', count( $empty_alts ) ), 'media-ally' ).'</th></tr>';
 					foreach ( $empty_alts as $img ) {
 						echo '<tr><td><a href="'.get_edit_post_link( $img->ID ).'">'.get_the_title( $img->ID ).'</a></td></tr>';
 					}
@@ -124,18 +124,18 @@ function media_ally_report_page() {
 	
 	<table class="form-table">
 		<tr>
-			<th scope="row"><?php _e( 'Media Library' ); ?></th>
+			<th scope="row"><?php _e( 'Media Library', 'media-ally' ); ?></th>
 			<td>
 			<p>	<label>
 					<input name="media_ally[ally_column]" type="checkbox" value="1" <?php checked( $options['ally_column'], 1 ); ?>/>
-					<?php _e( 'Display alt column in Media Library' ); ?>
+					<?php _e( 'Display alt column in Media Library', 'media-ally' ); ?>
 				</label></p>
 			</td>
 		</tr>
 	</table>
 
 	<p class="submit">
-	<input type="submit" value="<?php esc_attr_e( 'Update Options' ); ?>" class="button-primary" />
+	<input type="submit" value="<?php esc_attr_e( 'Update Options', 'media-ally' ); ?>" class="button-primary" />
 	</p>
 		
 	<?php } // if current_user_can() ?>	
@@ -147,7 +147,7 @@ function media_ally_report_page() {
 // Add menu page and register setting
 add_action('admin_menu', 'media_ally_add_pages');
 function media_ally_add_pages() {
-	add_options_page( 'Accessibility Report', 'Accessibility Report', 'manage_options', 'media_ally_report', 'media_ally_report_page' );
+	add_options_page( __('Accessibility Report', 'media-ally'), __('Accessibility Report', 'media-ally'), 'manage_options', 'media_ally_report', 'media_ally_report_page' );
 	register_setting( 'media_ally', 'media_ally', 'media_ally_validate');
 }
 

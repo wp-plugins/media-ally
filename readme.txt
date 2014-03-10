@@ -1,6 +1,8 @@
 === Media Ally ===
 Contributors: sillybean
 Donate link: http://stephanieleary.com/code/wordpress/media-ally/
+Text Domain: media-ally
+Domain Path: /languages
 Tags: accessibility, a11y, media, images, video, audio, transcripts, alt
 Requires at least: 3.5
 Tested up to: 3.5.1
