@@ -20,6 +20,11 @@ The initial version provides a list of images without alt text in Settings &rarr
 
 Other forms of media will be added in future versions. Visit https://github.com/sillybean/media-ally to contribute your ideas.
 
+=== Translations ===
+
+Serbian by <a href="http://firstsiteguide.com">Ognjen Djuraskovic</a>
+Spanish by <a href="http://firstsiteguide.com">Ognjen Djuraskovic</a>
+
 == Installation ==
 
 1. Upload the `media-ally` folder to the `/wp-content/plugins/` directory
