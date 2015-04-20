@@ -5,7 +5,7 @@ Text Domain: media-ally
 Domain Path: /languages
 Tags: accessibility, a11y, media, images, video, audio, transcripts, alt
 Requires at least: 3.5
-Tested up to: 3.5.1
+Tested up to: 4.2
 Stable tag: 0.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
